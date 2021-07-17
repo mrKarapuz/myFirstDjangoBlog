@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ new }}
+{% endblock title %}
+
+{% block sidebar %}
+{% include 'inc/_sidebar.html' %}
+{% endblock sidebar %}
+
+{% block content %}
+  <div class="card mb-3">
+      <div class="card-header">
+      Категория: 
+      {{ new.category }}
+      </div>
+      <div class="card-body">
+          <div class="media">
+              <div class="media-body col-md-12"> 
+                  {% if new.photo %}
+                      <img src="{{ new.photo.url }}"  width='350' alt="">
+                  {% endif %}
+                  <h5 class="card-title">{{ new.title }}</h5>
+                  <p class="card-text ">{{ new.content }}</p>
+                  <a href="/" class="btn btn-primary">Back</a>
+              </div>
+          </div>
+      </div>
+      <div class="card-footer text-muted">
+      {{ item.created_at|date:'Y-m-d H:i' }}
+      </div>
+  </div>
+{% endblock content %}
